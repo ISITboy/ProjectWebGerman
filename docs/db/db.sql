@@ -1,0 +1,33 @@
+CREATE TABLE flight (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name VARCHAR NOT NULL,
+	dateRoud datetime NOT NULL,
+	price INTEGER NOT NULL,
+	plane_id INTEGER NOT NULL REFERENCES plane(id),
+	team_id INTEGER NOT NULL REFERENCES team(id)
+);
+
+CREATE TABLE plane (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	name VARCHAR NOT NULL,
+	weight INTEGER NOT NULL,
+	speed VARCHAR NOT NULL
+);
+
+CREATE TABLE team (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	pilot_id INTEGER NOT NULL REFERENCES employee(id),
+	navigator_id INTEGER NOT NULL REFERENCES employee(id)
+);
+
+CREATE TABLE employee (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	name VARCHAR,
+	surname VARCHAR NOT NULL,
+	age INTEGER NOT NULL
+);
+
+
+
+
+
